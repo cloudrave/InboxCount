@@ -4,6 +4,8 @@
 @implementation MenubarController
 
 @synthesize statusItemView = _statusItemView;
+@synthesize urgentCount = _urgentCount;
+
 
 #pragma mark -
 
@@ -19,7 +21,20 @@
         _statusItemView.alternateImage = [NSImage imageNamed:@"StatusHighlighted"];
         _statusItemView.action = @selector(togglePanel:);
     }
+    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(updateCount) userInfo:nil repeats:YES];
     return self;
+}
+
+- (void)updateCount
+{
+    // beginning update
+    
+    NSString *urlString = [[NSString alloc] initWithCString:"http://www.nickmerrill.me/mail/urgent/" encoding:NSUTF8StringEncoding];
+    
+    NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
+    
+    int dataInt = [data intValue];
+    [self.statusItemView updateCount:dataInt];
 }
 
 - (void)dealloc

@@ -48,6 +48,13 @@
 - (void)mouseDown:(NSEvent *)theEvent
 {
     [NSApp sendAction:self.action to:self.target from:self];
+    
+    NSLog(@"mouse down, sending reset URL\n");
+    
+    NSString *urlString = [[NSString alloc] initWithCString:"http://www.nickmerrill.me/mail/reset/" encoding:NSUTF8StringEncoding];
+    
+    NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
+    
 }
 
 #pragma mark -
@@ -88,5 +95,10 @@
     frame.origin = [self.window convertBaseToScreen:frame.origin];
     return frame;
 }
+
+- (void)updateCount:(int) count {
+    [self setHighlighted:(count > 0)];
+}
+
 
 @end

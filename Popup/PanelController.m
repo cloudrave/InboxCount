@@ -3,8 +3,8 @@
 #import "StatusItemView.h"
 #import "MenubarController.h"
 
-#define OPEN_DURATION .15
-#define CLOSE_DURATION .1
+#define OPEN_DURATION .1
+#define CLOSE_DURATION .05
 
 #define SEARCH_INSET 17
 
@@ -189,7 +189,10 @@
 }
 
 - (void)openPanel
-{
+{    
+    NSLog(@"blocking openPanel");
+    return;
+    
     NSWindow *panel = [self window];
     
     NSRect screenRect = [[[NSScreen screens] objectAtIndex:0] frame];
@@ -247,5 +250,6 @@
         [self.window orderOut:nil];
     });
 }
+
 
 @end

@@ -10,6 +10,8 @@
 
 - (id)initWithStatusItem:(NSStatusItem *)statusItem;
 
+- (void)updateCount:(int) count;
+
 @property (nonatomic, strong, readonly) NSStatusItem *statusItem;
 @property (nonatomic, strong) NSImage *image;
 @property (nonatomic, strong) NSImage *alternateImage;
