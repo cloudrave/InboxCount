@@ -10,7 +10,7 @@
 
 - (id)initWithStatusItem:(NSStatusItem *)statusItem;
 
-- (void)updateCount:(int) count;
+- (void)displayCount:(int)count;
 
 @property (nonatomic, strong, readonly) NSStatusItem *statusItem;
 @property (nonatomic, strong) NSImage *image;
@@ -19,5 +19,6 @@
 @property (nonatomic, readonly) NSRect globalRect;
 @property (nonatomic) SEL action;
 @property (nonatomic, unsafe_unretained) id target;
+@property (nonatomic, strong) NSString *title;
 
 @end

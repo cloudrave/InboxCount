@@ -235,6 +235,8 @@
     
     [panel performSelector:@selector(makeFirstResponder:) withObject:self.searchField afterDelay:openDuration];
     
+    self.hasActivePanel = YES;
+    
     [self loadMessages];
 }
 
@@ -249,6 +251,8 @@
         
         [self.window orderOut:nil];
     });
+    
+    self.hasActivePanel = NO;
 }
 
 - (IBAction)resetButtonClicked:(id)sender {

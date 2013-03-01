@@ -8,6 +8,7 @@
 @synthesize isHighlighted = _isHighlighted;
 @synthesize action = _action;
 @synthesize target = _target;
+@synthesize title = _title;
 
 #pragma mark -
 
@@ -32,14 +33,29 @@
 {
 	[self.statusItem drawStatusBarBackgroundInRect:dirtyRect withHighlight:self.isHighlighted];
     
-    NSImage *icon = self.isHighlighted ? self.alternateImage : self.image;
-    NSSize iconSize = [icon size];
-    NSRect bounds = self.bounds;
-    CGFloat iconX = roundf((NSWidth(bounds) - iconSize.width) / 2);
-    CGFloat iconY = roundf((NSHeight(bounds) - iconSize.height) / 2);
-    NSPoint iconPoint = NSMakePoint(iconX, iconY);
+	//[icon drawAtPoint:iconPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];*/
+    
+    NSString *title;
+    NSColor *color = [NSColor blackColor];
+    NSColor *backgroundColor = [NSColor clearColor];
+    if (self.title) {
+        title = self.title;
+        if (!([self.title isEqualTo:@"0"])) {
+            color = [NSColor colorWithCalibratedRed:1. green:(66./255.) blue:(48./255.) alpha:1];
+            backgroundColor = [NSColor blackColor];
+        }
+        title = [NSString stringWithFormat:@"  %@  ", title];
+    } else {
+        title = @"---";
+    }
+    NSFont *font = [NSFont fontWithName:@"Times-Bold" size:16.0];
+    //[title drawInRect:dirtyRect withAttributes:nil];
+    
+    NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
+    [style setAlignment:NSCenterTextAlignment];
 
-	[icon drawAtPoint:iconPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+    NSDictionary *attr = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, color, NSForegroundColorAttributeName, style, NSParagraphStyleAttributeName, backgroundColor, NSBackgroundColorAttributeName, nil];
+    [title drawInRect:dirtyRect withAttributes:attr];    
 }
 
 #pragma mark -
@@ -91,10 +107,9 @@
     return frame;
 }
 
-- (void)updateCount:(int) count {
+- (void)displayCount:(int)count {
     // highlight toolbar if (count > 0)
-    //[self setHighlighted:(count > 0)];
-    [self.statusItem setTitle:@"hi there"];
+    [self setNeedsDisplay:YES];
 }
 
 
