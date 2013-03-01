@@ -25,7 +25,7 @@
 
 @property (nonatomic, unsafe_unretained) IBOutlet BackgroundView *backgroundView;
 @property (nonatomic, unsafe_unretained) IBOutlet NSSearchField *searchField;
-@property (nonatomic, unsafe_unretained) IBOutlet NSTextField *textField;
+@property (nonatomic, unsafe_unretained) IBOutlet NSTextView *textView;
 @property (nonatomic, unsafe_unretained) IBOutlet NSButton *resetButton;
 
 @property (nonatomic) BOOL hasActivePanel;

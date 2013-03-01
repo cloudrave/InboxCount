@@ -19,7 +19,8 @@
 @synthesize backgroundView = _backgroundView;
 @synthesize delegate = _delegate;
 @synthesize searchField = _searchField;
-@synthesize textField = _textField;
+@synthesize textView = _textView;
+
 
 #pragma mark -
 
@@ -125,7 +126,7 @@
         [self.searchField setHidden:NO];
     }
     
-    NSRect textRect = [self.textField frame];
+    NSRect textRect = [self.textView frame];
     textRect.size.width = NSWidth([self.backgroundView bounds]) - SEARCH_INSET * 2;
     textRect.origin.x = SEARCH_INSET;
     textRect.size.height = NSHeight([self.backgroundView bounds]) - ARROW_HEIGHT - SEARCH_INSET * 3 - NSHeight(searchRect);
@@ -133,12 +134,12 @@
     
     if (NSIsEmptyRect(textRect))
     {
-        [self.textField setHidden:YES];
+        [self.textView setHidden:YES];
     }
     else
     {
-        [self.textField setFrame:textRect];
-        [self.textField setHidden:NO];
+        [self.textView setFrame:textRect];
+        [self.textView setHidden:NO];
     }
 }
 
@@ -158,7 +159,7 @@
         searchFormat = NSLocalizedString(@"Search for ‘%@’…", @"Format for search request");
     }
     NSString *searchRequest = [NSString stringWithFormat:searchFormat, searchString];
-    [self.textField setStringValue:searchRequest];
+    [self.textView setString:searchRequest];
 }
 
 #pragma mark - Public methods
@@ -264,11 +265,25 @@
 }
 
 - (void)loadMessages {
+    [self.textView setBackgroundColor:[NSColor clearColor]];
+    [self.textView setEditable:NO];
+    [self.textView setSelectable:NO];
+    NSString *fontName = @"Source Code Pro";
+    NSFont *defaultFont = [NSFont fontWithName:fontName size:14.0];
+
     NSString *urlString = [[NSString alloc] initWithCString:"http://www.nickmerrill.me/mail/urgent/last/clean/" encoding:NSUTF8StringEncoding];
     
     NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
     
-    [self.textField setStringValue:data];
+    if ([data isEqualToString:@""]) {
+        [self.textView setFont:[NSFont fontWithName:fontName size:20.0]];
+        [self.textView setAlignment:NSCenterTextAlignment];
+        [self.textView setString:@"\n\n(no messages)"];
+    } else {
+        [self.textView setFont:defaultFont];
+        [self.textView setAlignment:NSLeftTextAlignment];
+        [self.textView setString:data];
+    }
 }
 
 
