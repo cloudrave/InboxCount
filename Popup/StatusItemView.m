@@ -48,8 +48,6 @@
 - (void)mouseDown:(NSEvent *)theEvent
 {
     [NSApp sendAction:self.action to:self.target from:self];
-
-    //[self resetCount];
 }
 
 
@@ -95,7 +93,8 @@
 
 - (void)updateCount:(int) count {
     // highlight toolbar if (count > 0)
-    [self setHighlighted:(count > 0)];
+    //[self setHighlighted:(count > 0)];
+    [self.statusItem setTitle:@"hi there"];
 }
 
 

@@ -9,7 +9,7 @@
 #define SEARCH_INSET 17
 
 #define POPUP_HEIGHT 220
-#define PANEL_WIDTH 280
+#define PANEL_WIDTH 450
 #define MENU_ANIMATION_DURATION .1
 
 #pragma mark -
@@ -190,10 +190,7 @@
 }
 
 - (void)openPanel
-{    
-//    NSLog(@"blocking openPanel");
-//    return;
-    
+{
     NSWindow *panel = [self window];
     
     NSRect screenRect = [[[NSScreen screens] objectAtIndex:0] frame];
@@ -257,7 +254,7 @@
 - (IBAction)resetButtonClicked:(id)sender {
     NSLog(@"reset count, sending reset URL\n");
     
-    NSString *urlString = [[NSString alloc] initWithCString:"http://www.nickmerrill.me/mail/reset/" encoding:NSUTF8StringEncoding];
+    NSString *urlString = @"http://www.nickmerrill.me/mail/reset/";
     
     NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
     
@@ -271,7 +268,7 @@
     NSString *fontName = @"Source Code Pro";
     NSFont *defaultFont = [NSFont fontWithName:fontName size:14.0];
 
-    NSString *urlString = [[NSString alloc] initWithCString:"http://www.nickmerrill.me/mail/urgent/last/clean/" encoding:NSUTF8StringEncoding];
+    NSString *urlString = @"http://www.nickmerrill.me/mail/urgent/last/clean/";
     
     NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
     

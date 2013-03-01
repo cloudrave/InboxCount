@@ -29,7 +29,7 @@
 {
     // beginning update
     
-    NSString *urlString = [[NSString alloc] initWithCString:"http://www.nickmerrill.me/mail/urgent/" encoding:NSUTF8StringEncoding];
+    NSString *urlString = @"http://www.nickmerrill.me/mail/urgent/";
     
     NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
     
