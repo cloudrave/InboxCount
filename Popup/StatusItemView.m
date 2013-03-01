@@ -48,14 +48,11 @@
 - (void)mouseDown:(NSEvent *)theEvent
 {
     [NSApp sendAction:self.action to:self.target from:self];
-    
-    NSLog(@"mouse down, sending reset URL\n");
-    
-    NSString *urlString = [[NSString alloc] initWithCString:"http://www.nickmerrill.me/mail/reset/" encoding:NSUTF8StringEncoding];
-    
-    NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
-    
+
+    //[self resetCount];
 }
+
+
 
 #pragma mark -
 #pragma mark Accessors
@@ -97,6 +94,7 @@
 }
 
 - (void)updateCount:(int) count {
+    // highlight toolbar if (count > 0)
     [self setHighlighted:(count > 0)];
 }
 

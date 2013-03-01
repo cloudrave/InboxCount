@@ -8,7 +8,7 @@
 
 #define SEARCH_INSET 17
 
-#define POPUP_HEIGHT 122
+#define POPUP_HEIGHT 220
 #define PANEL_WIDTH 280
 #define MENU_ANIMATION_DURATION .1
 
@@ -190,8 +190,8 @@
 
 - (void)openPanel
 {    
-    NSLog(@"blocking openPanel");
-    return;
+//    NSLog(@"blocking openPanel");
+//    return;
     
     NSWindow *panel = [self window];
     
@@ -236,6 +236,8 @@
     [NSAnimationContext endGrouping];
     
     [panel performSelector:@selector(makeFirstResponder:) withObject:self.searchField afterDelay:openDuration];
+    
+    [self loadMessages];
 }
 
 - (void)closePanel
@@ -249,6 +251,24 @@
         
         [self.window orderOut:nil];
     });
+}
+
+- (IBAction)resetButtonClicked:(id)sender {
+    NSLog(@"reset count, sending reset URL\n");
+    
+    NSString *urlString = [[NSString alloc] initWithCString:"http://www.nickmerrill.me/mail/reset/" encoding:NSUTF8StringEncoding];
+    
+    NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
+    
+    [self closePanel];
+}
+
+- (void)loadMessages {
+    NSString *urlString = [[NSString alloc] initWithCString:"http://www.nickmerrill.me/mail/urgent/last/clean/" encoding:NSUTF8StringEncoding];
+    
+    NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
+    
+    [self.textField setStringValue:data];
 }
 
 
