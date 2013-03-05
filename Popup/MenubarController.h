@@ -1,4 +1,4 @@
-#define STATUS_ITEM_VIEW_WIDTH 40.0
+#define STATUS_ITEM_VIEW_WIDTH 30.0
 
 #pragma mark -
 
@@ -8,6 +8,8 @@
 @private
     StatusItemView *_statusItemView;
 }
+
+- (void)updateCount;
 
 @property (nonatomic) BOOL hasActiveIcon;
 @property (nonatomic, strong, readonly) NSStatusItem *statusItem;

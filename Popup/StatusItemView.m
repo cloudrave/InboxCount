@@ -44,12 +44,11 @@
             color = [NSColor colorWithCalibratedRed:1. green:(66./255.) blue:(48./255.) alpha:1];
             backgroundColor = [NSColor blackColor];
         }
-        title = [NSString stringWithFormat:@"  %@  ", title];
+        title = [NSString stringWithFormat:@"%@", title];
     } else {
         title = @"---";
     }
     NSFont *font = [NSFont fontWithName:@"Times-Bold" size:16.0];
-    //[title drawInRect:dirtyRect withAttributes:nil];
     
     NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
     [style setAlignment:NSCenterTextAlignment];

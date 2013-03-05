@@ -256,13 +256,14 @@
 }
 
 - (IBAction)resetButtonClicked:(id)sender {
-    NSLog(@"reset count, sending reset URL\n");
+    NSLog(@"reset button clicked, sending reset URL\n");
     
     NSString *urlString = @"http://www.nickmerrill.me/mail/reset/";
     
     NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
     
     [self closePanel];
+    //[MenubarController updateCount];
 }
 
 - (void)loadMessages {

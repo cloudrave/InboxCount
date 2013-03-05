@@ -21,7 +21,7 @@
         _statusItemView.action = @selector(togglePanel:);
     }
     
-    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(updateCount) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(updateCount) userInfo:nil repeats:YES];
     
     return self;
 }
