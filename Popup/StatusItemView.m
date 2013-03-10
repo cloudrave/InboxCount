@@ -38,9 +38,13 @@
     NSString *title;
     NSColor *color = [NSColor blackColor];
     NSColor *backgroundColor = [NSColor clearColor];
+    
+    bool attention = NO;
+
     if (self.title) {
         title = self.title;
         if (!([self.title isEqualTo:@"0"])) {
+            attention = YES;
             color = [NSColor colorWithCalibratedRed:1. green:(66./255.) blue:(48./255.) alpha:1];
             backgroundColor = [NSColor blackColor];
         }
@@ -54,7 +58,21 @@
     [style setAlignment:NSCenterTextAlignment];
 
     NSDictionary *attr = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, color, NSForegroundColorAttributeName, style, NSParagraphStyleAttributeName, backgroundColor, NSBackgroundColorAttributeName, nil];
-    [title drawInRect:dirtyRect withAttributes:attr];    
+    
+    if (attention) {
+        NSRect viewBounds = [self bounds];
+        [backgroundColor set];
+        NSRectFill(viewBounds);
+        NSRect backgroundRect;
+        backgroundRect.origin.x = 0;
+        backgroundRect.origin.y = 0;
+        backgroundRect.size.height = 100;
+        backgroundRect.size.width = 100;
+    }
+    
+    [title drawInRect:dirtyRect withAttributes:attr];
+    
+    //[@"" drawAtPoint:NSMakePoint(0.0, 0.0) withAttributes:backgroundAttr];
 }
 
 #pragma mark -
@@ -107,7 +125,6 @@
 }
 
 - (void)displayCount:(int)count {
-    // highlight toolbar if (count > 0)
     [self setNeedsDisplay:YES];
 }
 

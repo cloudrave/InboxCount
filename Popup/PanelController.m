@@ -20,7 +20,8 @@
 @synthesize delegate = _delegate;
 @synthesize searchField = _searchField;
 @synthesize textView = _textView;
-
+@synthesize resetButton = _resetButton;
+@synthesize openGmailButton = _openGmailButton;
 
 #pragma mark -
 
@@ -264,6 +265,10 @@
     
     [self closePanel];
     //[MenubarController updateCount];
+}
+
+- (IBAction)openGmailButtonClicked:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://www.gmail.com/"]];
 }
 
 - (void)loadMessages {
