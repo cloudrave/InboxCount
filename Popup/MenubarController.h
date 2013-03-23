@@ -12,6 +12,7 @@
 - (void)updateCount;
 
 @property (nonatomic) BOOL hasActiveIcon;
+@property (nonatomic) BOOL connectionsAreBlocked;
 @property (nonatomic, strong, readonly) NSStatusItem *statusItem;
 @property (nonatomic, strong, readonly) StatusItemView *statusItemView;
 

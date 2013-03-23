@@ -33,8 +33,6 @@
 {
 	[self.statusItem drawStatusBarBackgroundInRect:dirtyRect withHighlight:self.isHighlighted];
     
-	//[icon drawAtPoint:iconPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];*/
-    
     NSString *title;
     NSColor *color = [NSColor blackColor];
     NSColor *backgroundColor = [NSColor clearColor];
@@ -71,8 +69,6 @@
     }
     
     [title drawInRect:dirtyRect withAttributes:attr];
-    
-    //[@"" drawAtPoint:NSMakePoint(0.0, 0.0) withAttributes:backgroundAttr];
 }
 
 #pragma mark -

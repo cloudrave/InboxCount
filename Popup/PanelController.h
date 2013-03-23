@@ -28,6 +28,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet NSTextView *textView;
 @property (nonatomic, unsafe_unretained) IBOutlet NSButton *resetButton;
 @property (nonatomic, unsafe_unretained) IBOutlet NSButton *openGmailButton;
+@property (nonatomic, unsafe_unretained) IBOutlet NSButton *quitButton;
 
 @property (nonatomic) BOOL hasActivePanel;
 @property (nonatomic, unsafe_unretained, readonly) id<PanelControllerDelegate> delegate;
@@ -38,5 +39,6 @@
 - (void)closePanel;
 - (IBAction)resetButtonClicked:(id)sender;
 - (IBAction)openGmailButtonClicked:(id)sender;
+- (IBAction)quitButtonClicked:(id)sender;
 
 @end

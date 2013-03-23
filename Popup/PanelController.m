@@ -23,6 +23,7 @@
 @synthesize resetButton = _resetButton;
 @synthesize openGmailButton = _openGmailButton;
 
+
 #pragma mark -
 
 - (id)initWithDelegate:(id<PanelControllerDelegate>)delegate
@@ -261,14 +262,20 @@
     
     NSString *urlString = @"http://www.nickmerrill.me/mail/reset/";
     
-    NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
-    
     [self closePanel];
-    //[MenubarController updateCount];
+    
+    NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
 }
 
+
+
 - (IBAction)openGmailButtonClicked:(id)sender {
+    [self closePanel];
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://www.gmail.com/"]];
+}
+
+- (IBAction)quitButtonClicked:(id)sender {
+    [NSApp terminate:self];
 }
 
 - (void)loadMessages {
