@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		D880EC7E16DF2AD500310D84 /* icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = D880EC7D16DF2AD500310D84 /* icon-01.png */; };
 		D880EC8016DF2AE200310D84 /* icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = D880EC7F16DF2AE200310D84 /* icon-01.png */; };
-		D8C9C70F16FE880F00A380FD /* SettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C9C70D16FE880F00A380FD /* SettingsWindowController.m */; };
-		D8C9C71516FE8F3F00A380FD /* SettingsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8C9C71416FE8F3E00A380FD /* SettingsWindow.xib */; };
 		D8C9C71B16FE92A000A380FD /* QueryResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C9C71A16FE92A000A380FD /* QueryResponse.m */; };
 		DD4F7C0913C30F9F00825C6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4F7C0813C30F9F00825C6E /* Cocoa.framework */; };
 		DD4F7C1513C30F9F00825C6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4F7C1413C30F9F00825C6E /* main.m */; };
@@ -31,9 +29,6 @@
 /* Begin PBXFileReference section */
 		D880EC7D16DF2AD500310D84 /* icon-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-01.png"; path = "Popup/icon-01.png"; sourceTree = "<group>"; };
 		D880EC7F16DF2AE200310D84 /* icon-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-01.png"; sourceTree = "<group>"; };
-		D8C9C70C16FE880F00A380FD /* SettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsWindowController.h; sourceTree = "<group>"; };
-		D8C9C70D16FE880F00A380FD /* SettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsWindowController.m; sourceTree = "<group>"; };
-		D8C9C71416FE8F3E00A380FD /* SettingsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsWindow.xib; path = Popup/SettingsWindow.xib; sourceTree = "<group>"; };
 		D8C9C71916FE92A000A380FD /* QueryResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryResponse.h; sourceTree = "<group>"; };
 		D8C9C71A16FE92A000A380FD /* QueryResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryResponse.m; sourceTree = "<group>"; };
 		DD4F7C0413C30F9F00825C6E /* Notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,8 +133,6 @@
 				DD4F7C3713C317A500825C6E /* MenubarController.m */,
 				DD4F7C3D13C318D600825C6E /* PanelController.h */,
 				DD4F7C3E13C318D600825C6E /* PanelController.m */,
-				D8C9C70C16FE880F00A380FD /* SettingsWindowController.h */,
-				D8C9C70D16FE880F00A380FD /* SettingsWindowController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -158,7 +151,6 @@
 			children = (
 				DD4F7C1D13C30F9F00825C6E /* MainMenu.xib */,
 				DD4F7C4013C31B4A00825C6E /* Panel.xib */,
-				D8C9C71416FE8F3E00A380FD /* SettingsWindow.xib */,
 			);
 			name = XIBs;
 			sourceTree = "<group>";
@@ -246,7 +238,6 @@
 				DDF4EFAE16C80AD30044D141 /* StatusHighlighted@2x.png in Resources */,
 				D880EC7E16DF2AD500310D84 /* icon-01.png in Resources */,
 				D880EC8016DF2AE200310D84 /* icon-01.png in Resources */,
-				D8C9C71516FE8F3F00A380FD /* SettingsWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +255,6 @@
 				DD4F7C3F13C318D600825C6E /* PanelController.m in Sources */,
 				DD4F7C4413C31BD200825C6E /* Panel.m in Sources */,
 				DD4F7C4713C3208500825C6E /* BackgroundView.m in Sources */,
-				D8C9C70F16FE880F00A380FD /* SettingsWindowController.m in Sources */,
 				D8C9C71B16FE92A000A380FD /* QueryResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
