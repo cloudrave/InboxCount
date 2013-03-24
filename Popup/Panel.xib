@@ -127,7 +127,7 @@
 											<string key="NSFrameSize">{410, 160}</string>
 											<reference key="NSSuperview" ref="235073722"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="194800612"/>
+											<reference key="NSNextKeyView" ref="404886499"/>
 											<string key="NSReuseIdentifierKey">_NS:13</string>
 											<object class="NSTextContainer" key="NSTextContainer" id="757707861">
 												<object class="NSLayoutManager" key="NSLayoutManager">
@@ -282,7 +282,7 @@
 							<string key="NSFrame">{{20, 40}, {410, 160}}</string>
 							<reference key="NSSuperview" ref="290197886"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="404886499"/>
+							<reference key="NSNextKeyView" ref="235073722"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<int key="NSsFlags">133136</int>
 							<reference key="NSVScroller" ref="194800612"/>
@@ -324,7 +324,6 @@
 							<string key="NSFrame">{{386, 172}, {50, 32}}</string>
 							<reference key="NSSuperview" ref="290197886"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:1574</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="6536719">
@@ -358,7 +357,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="501783739"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<int key="NSWindowAnimationBehavior">2</int>
 				<int key="NSWindowCollectionBehavior">66</int>

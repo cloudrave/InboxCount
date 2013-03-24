@@ -1,5 +1,6 @@
 #import "MenubarController.h"
 #import "StatusItemView.h"
+#import "QueryResponse.h"
 
 @implementation MenubarController
 
@@ -37,26 +38,19 @@
     // beginning update
     
     NSString *urlString = @"http://www.nickmerrill.me/mail/urgent/";
-    NSError *connectionError = nil;
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSURLResponse *response = nil;
     
-    NSURLRequest *request= [NSURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:30];
+    QueryResponse *response = [QueryResponse queryUrlWithString:urlString];
     
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&connectionError];
-    
-    if ([connectionError code] == kCFURLErrorNotConnectedToInternet) {
-        NSLog(@"%@", [connectionError localizedDescription]);
+    if ([response.error code] == kCFURLErrorNotConnectedToInternet) {
+        NSLog(@"%@", [response.error localizedDescription]);
         [self blockUpdates:10.];
         self.statusItemView.title = nil;
         [self.statusItemView displayCount:-1];
         return;
     }
     
-    NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
-    int dataInt = [responseString intValue];
-    self.statusItemView.title = responseString;
+    int dataInt = [response.dataString intValue];
+    self.statusItemView.title = response.dataString;
     [self.statusItemView displayCount:dataInt];
 }
 

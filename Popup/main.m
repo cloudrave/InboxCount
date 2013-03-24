@@ -3,7 +3,7 @@
 //  Popup
 //
 //  Created by Vadim Shpakovski on 7/5/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Forked by Nick Merrill 2/2013.
 //
 
 #import <Cocoa/Cocoa.h>

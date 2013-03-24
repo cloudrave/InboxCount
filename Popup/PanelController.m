@@ -2,6 +2,7 @@
 #import "BackgroundView.h"
 #import "StatusItemView.h"
 #import "MenubarController.h"
+#import "QueryResponse.h"
 
 #define OPEN_DURATION .1
 #define CLOSE_DURATION .05
@@ -264,7 +265,7 @@
     
     [self closePanel];
     
-    NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
+    [QueryResponse queryUrlWithString:urlString];
 }
 
 
@@ -287,16 +288,16 @@
 
     NSString *urlString = @"http://www.nickmerrill.me/mail/urgent/last/clean/";
     
-    NSString *data = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:nil];
+    QueryResponse *response = [QueryResponse queryUrlWithString:urlString];
     
-    if ([data isEqualToString:@""]) {
+    if ([response.dataString isEqualToString:@""]) {
         [self.textView setFont:[NSFont fontWithName:fontName size:20.0]];
         [self.textView setAlignment:NSCenterTextAlignment];
         [self.textView setString:@"\n\n(no messages)"];
     } else {
         [self.textView setFont:defaultFont];
         [self.textView setAlignment:NSLeftTextAlignment];
-        [self.textView setString:data];
+        [self.textView setString:response.dataString];
     }
 }
 
