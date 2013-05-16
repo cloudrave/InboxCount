@@ -12,6 +12,13 @@
 
 - (void)displayCount:(int)count;
 
+typedef enum {
+    NEW,
+    VIEWED,
+    EMPTY,
+    ERROR
+} alertStatus_t;
+
 @property (nonatomic, strong, readonly) NSStatusItem *statusItem;
 @property (nonatomic, strong) NSImage *image;
 @property (nonatomic, strong) NSImage *alternateImage;
@@ -20,5 +27,7 @@
 @property (nonatomic) SEL action;
 @property (nonatomic, unsafe_unretained) id target;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic) alertStatus_t alertStatus;
+@property (nonatomic) int lastClickedCount;
 
 @end
