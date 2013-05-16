@@ -48,6 +48,9 @@
         
         if (count == 0) {
             self.alertStatus = EMPTY;
+            
+            // also reset number of read messages
+            self.lastClickedCount = 0;
         }
         else {
             if (self.lastClickedCount && self.lastClickedCount >= count) {

@@ -27,7 +27,11 @@ typedef enum {
 @property (nonatomic) SEL action;
 @property (nonatomic, unsafe_unretained) id target;
 @property (nonatomic, strong) NSString *title;
+
 @property (nonatomic) alertStatus_t alertStatus;
+
+/* Keeps track of the current number of messages that have been
+ * read by the user. */
 @property (nonatomic) int lastClickedCount;
 
 @end
