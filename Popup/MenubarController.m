@@ -29,6 +29,7 @@
     return self;
 }
 
+
 - (void)updateCount {
     if (self.connectionsAreBlocked) {
         NSLog(@"Updates blocked.");

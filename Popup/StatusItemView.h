@@ -34,4 +34,7 @@ typedef enum {
  * read by the user. */
 @property (nonatomic) int lastClickedCount;
 
+// The last successful count retrieved.
+@property (nonatomic) int lastCount;
+
 @end

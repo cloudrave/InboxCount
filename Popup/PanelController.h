@@ -29,6 +29,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet NSButton *resetButton;
 @property (nonatomic, unsafe_unretained) IBOutlet NSButton *openGmailButton;
 @property (nonatomic, unsafe_unretained) IBOutlet NSButton *quitButton;
+@property (nonatomic, unsafe_unretained) IBOutlet NSButton *audioAlertCheckbox;
 
 @property (nonatomic) BOOL hasActivePanel;
 @property (nonatomic, unsafe_unretained, readonly) id<PanelControllerDelegate> delegate;
@@ -40,5 +41,6 @@
 - (IBAction)resetButtonClicked:(id)sender;
 - (IBAction)openGmailButtonClicked:(id)sender;
 - (IBAction)quitButtonClicked:(id)sender;
+- (IBAction)audioAlertCheckboxChanged:(id)sender;
 
 @end

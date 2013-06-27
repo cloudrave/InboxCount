@@ -11,6 +11,9 @@
 @synthesize title = _title;
 @synthesize alertStatus = _alertStatus;
 @synthesize lastClickedCount = _lastClickedCount;
+@synthesize lastCount = _lastCount;
+
+NSTimer *alertTimer;
 
 #pragma mark -
 
@@ -25,6 +28,9 @@
         _statusItem = statusItem;
         _statusItem.view = self;
     }
+    
+    self.lastCount = 0;
+    
     return self;
 }
 
@@ -53,16 +59,21 @@
             self.lastClickedCount = 0;
         }
         else {
-            if (self.lastClickedCount && self.lastClickedCount >= count) {
+            if (self.lastClickedCount >= count) {
                 self.alertStatus = VIEWED;
             } else {
                 self.alertStatus = NEW;
+                
+                if (count > self.lastCount) {
+                    NSLog(@"ALERTING STARTING");
+                    [self beginAlerting];
+                }
             }
         }
+        self.lastCount = count;
     } else {
         self.alertStatus = ERROR;
     }
-    
     
     switch (self.alertStatus) {
         case EMPTY:
@@ -83,9 +94,9 @@
             NSLog(@"NEW");
             color = [NSColor colorWithCalibratedRed:1. green:(66./255.) blue:(60./255.) alpha:1];
             backgroundColor = [NSColor blackColor];
+
             break;
     }
-    
 
     NSDictionary *attr = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, color, NSForegroundColorAttributeName, style, NSParagraphStyleAttributeName, backgroundColor, NSBackgroundColorAttributeName, nil];
     
@@ -111,9 +122,37 @@
     self.lastClickedCount = [self.title integerValue];
     [self setNeedsDisplay:YES];
     
+    [self endAlerting];
+    
     [NSApp sendAction:self.action to:self.target from:self];
 }
 
+- (void)playAlertSound {
+    // Plays sound.
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"AudioAlertsAreEnabled"]) {
+        [[NSSound soundNamed:@"Submarine"] play];
+    }
+}
+
+
+- (void)beginAlerting {
+    if (alertTimer) {
+        [self endAlerting];
+    }
+    
+    [self playAlertSound];
+    alertTimer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(playAlertSound) userInfo:nil repeats:YES];
+    
+    // Stop alerting after time.
+    [NSTimer scheduledTimerWithTimeInterval:180. target:self selector:@selector(endAlerting) userInfo:nil repeats:NO];
+}
+
+- (void)endAlerting {
+    if (alertTimer) {
+        [alertTimer invalidate];
+        alertTimer = nil;
+    }
+}
 
 
 #pragma mark -
