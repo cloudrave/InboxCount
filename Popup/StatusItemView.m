@@ -50,7 +50,7 @@ NSTimer *alertTimer;
     if (self.title) {
         title = self.title;
         int count = (int)[title integerValue];
-        NSLog(@"total: %d \nread: %d", count, self.lastClickedCount);
+        //NSLog(@"total: %d \nread: %d", count, self.lastClickedCount);
         
         if (count == 0) {
             self.alertStatus = EMPTY;
@@ -65,8 +65,14 @@ NSTimer *alertTimer;
                 self.alertStatus = NEW;
                 
                 if (count > self.lastCount) {
-                    NSLog(@"ALERTING STARTING");
+                    // Starts playing sound.
                     [self beginAlerting];
+                    
+                    // Sends notification to screen.
+                    NSUserNotification *notification = [[NSUserNotification alloc] init];
+                    notification.title = @"You have important email.";
+                    notification.informativeText = @"You may want to check it.";
+                    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
                 }
             }
         }
