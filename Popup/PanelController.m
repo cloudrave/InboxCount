@@ -304,7 +304,6 @@
 
 - (void)audioAlertCheckboxChanged:(id)sender {
     NSButton *checkbox = (NSButton *)sender;
-    //NSLog(@"%ld", [checkbox state]);
     BOOL checkboxIsChecked = [checkbox state] == NSOnState;
     [[NSUserDefaults standardUserDefaults] setBool:checkboxIsChecked forKey:@"AudioAlertsAreEnabled"];
 }

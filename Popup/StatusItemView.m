@@ -83,24 +83,19 @@ NSTimer *alertTimer;
     
     switch (self.alertStatus) {
         case EMPTY:
-            NSLog(@"EMPTY");
             title = @"☺";
             font = [NSFont fontWithName:@"Batang" size:18];
             break;
         case ERROR:
-            NSLog(@"ERROR");
             title = @"---";
             break;
         case VIEWED:
-            NSLog(@"VIEWED");
             color = [NSColor colorWithCalibratedRed:(142./255.) green:(157./255.) blue:(245./255.) alpha:1];
             backgroundColor = [NSColor colorWithCalibratedWhite:0.25 alpha:1];
             break;
         case NEW:
-            NSLog(@"NEW");
             color = [NSColor colorWithCalibratedRed:1. green:(66./255.) blue:(60./255.) alpha:1];
             backgroundColor = [NSColor blackColor];
-
             break;
     }
 
