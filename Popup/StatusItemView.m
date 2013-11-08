@@ -57,6 +57,8 @@ NSTimer *alertTimer;
             
             // also reset number of read messages
             self.lastClickedCount = 0;
+            
+            [self endAlerting];
         }
         else {
             if (self.lastClickedCount >= count) {

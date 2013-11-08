@@ -63,6 +63,12 @@
     
     // Follow search string
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(runSearch) name:NSControlTextDidChangeNotification object:self.searchField];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"AudioAlertsAreEnabled"]) {
+        [self.audioAlertCheckbox setState:NSOnState];
+    } else {
+        [self.audioAlertCheckbox setState:NSOffState];
+    }
 }
 
 #pragma mark - Public accessors
@@ -306,6 +312,7 @@
     NSButton *checkbox = (NSButton *)sender;
     BOOL checkboxIsChecked = [checkbox state] == NSOnState;
     [[NSUserDefaults standardUserDefaults] setBool:checkboxIsChecked forKey:@"AudioAlertsAreEnabled"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
