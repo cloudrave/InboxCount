@@ -44,12 +44,12 @@
     
     if ([response.error code]) {
         NSLog(@"%@", [response.error localizedDescription]);
-        [self blockUpdates:10.];
+        [self blockUpdates:20.];
         self.statusItemView.title = nil;
         [self.statusItemView displayCount:-1];
         return;
     }
-    
+        
     int dataInt = [response.dataString intValue];
     self.statusItemView.title = response.dataString;
     [self.statusItemView displayCount:dataInt];
