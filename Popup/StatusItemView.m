@@ -43,7 +43,8 @@ NSTimer *alertTimer;
     NSString *title;
     NSColor *color = [NSColor blackColor];
     NSColor *backgroundColor = [NSColor clearColor];
-    NSFont *font = [NSFont fontWithName:@"Times-Bold" size:16.0];
+    double MENU_FONT_SIZE = 16.0;
+    NSFont *font = [NSFont fontWithName:@"Times-Bold" size:MENU_FONT_SIZE];
     NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
     [style setAlignment:NSCenterTextAlignment];
     
@@ -86,7 +87,8 @@ NSTimer *alertTimer;
     switch (self.alertStatus) {
         case EMPTY:
             title = @"☺";
-            font = [NSFont fontWithName:@"Batang" size:18];
+            
+            font = [NSFont fontWithName:@"Times-Bold" size:MENU_FONT_SIZE];
             break;
         case ERROR:
             title = @"---";
